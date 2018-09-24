@@ -1,0 +1,13 @@
+{
+    "/data/*":{
+        "target": "https://samples.openweathermap.org/",
+        "secure": false,
+        "changeOrigin": true
+    },
+
+    "/api-de-dados/*": {
+        "target": "http://www.transparencia.gov.br/",
+        "secure": false,
+        "changeOrigin": true
+    }
+}

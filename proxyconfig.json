@@ -4,9 +4,8 @@
         "secure": false,
         "changeOrigin": true
     },
-
-    "/api-de-dados/*": {
-        "target": "http://www.transparencia.gov.br/",
+    "/1.0/population/*":{
+        "target": "http://api.population.io",
         "secure": false,
         "changeOrigin": true
     }

@@ -61,11 +61,7 @@ export class GraphsComponent implements OnInit {
         })
 
       })
-
-      console.log(this._weather.despesasUFPE().subscribe(res => {
-        console.log(res['ano'])
-        console.log(res[0].ano)
-      }))
+  
   }
 
 }

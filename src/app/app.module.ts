@@ -9,6 +9,8 @@ import { InfoCardsComponent } from './info-cards/info-cards.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './data.service';
 import { GraphsComponent } from './graphs/graphs.component';
+import { UfpeYearGraphComponent } from './ufpe-year-graph/ufpe-year-graph.component';
+import { GraphAgeComponent } from './graph-age/graph-age.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { GraphsComponent } from './graphs/graphs.component';
     AppComponent,
     MenuComponent,
     InfoCardsComponent,
-    GraphsComponent
+    GraphsComponent,
+    UfpeYearGraphComponent,
+    GraphAgeComponent
   ],
   imports: [
     BrowserModule,

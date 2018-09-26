@@ -17,6 +17,8 @@ import { DataService } from './data.service';
 import { GraphsComponent } from './graphs/graphs.component';
 import { Graphs2Component } from './graphs2/graphs2.component';
 import { PyramidGraphicComponent } from './graphs/pyramid-graphic/pyramid-graphic.component';
+import { UfpeYearGraphComponent } from './ufpe-year-graph/ufpe-year-graph.component';
+import { GraphAgeComponent } from './graph-age/graph-age.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { PyramidGraphicComponent } from './graphs/pyramid-graphic/pyramid-graphi
     InfoCardsComponent,
     GraphsComponent,
     Graphs2Component,
-    PyramidGraphicComponent
+    PyramidGraphicComponent,
+    UfpeYearGraphComponent,
+    GraphAgeComponent
   ],
   imports: [
     BrowserModule,

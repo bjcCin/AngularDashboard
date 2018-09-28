@@ -14,9 +14,13 @@ export class DataService {
       .map(result => result);
   } 
   
-  despesasUFPE(){
-    return this._http.get("/api-de-dados/despesas/por-orgao?ano=2014&orgao=26242&pagina=1")
-      .map(result => result);
+  distributionMortality(){
+    let year = 2018;
+    let country = 'Brazil';
+
+    return this._http.get("1.0/population/"+year+"/"+country+"/?format=json")
+    .map(result => result);
   }
+
 
 }

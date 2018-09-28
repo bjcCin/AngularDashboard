@@ -9,6 +9,7 @@ import { InfoCardsComponent } from './info-cards/info-cards.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './data.service';
 import { GraphsComponent } from './graphs/graphs.component';
+import { DistributionAgeSexComponent } from './distribution-age-sex/distribution-age-sex.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { GraphsComponent } from './graphs/graphs.component';
     AppComponent,
     MenuComponent,
     InfoCardsComponent,
-    GraphsComponent
+    GraphsComponent,
+    DistributionAgeSexComponent
   ],
   imports: [
     BrowserModule,

@@ -10,6 +10,7 @@ import { Chart } from 'chart.js';
 export class GraphsComponent implements OnInit {
 
   chart: any;
+  chart2: any;
   
   constructor(private _weather: DataService) {  }
 
@@ -17,10 +18,13 @@ export class GraphsComponent implements OnInit {
 
     this._weather.dailyForecast()
       .subscribe(res => {
+
+        console.log(res)
         
-        let temp_max = res['list'].map(res => res.main.temp_max)
+        let temp_max = res['list'].map(res => res.main["temp_max"])
         let temp_min = res['list'].map(res => res.main.temp_min)
         let alldates = res['list'].map(res => res.dt)
+        console.log(temp_max)
 
         let weatherDates = []
         alldates.forEach((res) => {
@@ -62,10 +66,99 @@ export class GraphsComponent implements OnInit {
 
       })
 
-      console.log(this._weather.despesasUFPE().subscribe(res => {
-        console.log(res['ano'])
-        console.log(res[0].ano)
-      }))
+      // var mulher = []
+      // const homem  = []
+
+      // this._weather.worldPopAPI()
+      // .subscribe(res => {
+
+      //     for(let i = 0; i < 100; i++){
+      //       var v20 = v20 + res[i].females
+      //       if(i%20==0 && i !=0){
+      //         mulher.push(v20)
+      //         v20 = 0
+      //       }
+      //     }
+      //     console.log(mulher)
+      //  }
+      // )
+
+      this.chart2 = new Chart('canvas2', {
+        type: 'bar',
+        data: {
+            labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            },
+            {
+              label: '# of Votes',
+              data: [12, 19, 3, 5, 2, 3],
+              backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 159, 64, 0.2)'
+              ],
+              borderColor: [
+                  'rgba(255,99,132,1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)'
+              ],
+              borderWidth: 1
+            }
+            
+
+          ]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+      })
+
+      //this._weather.worldPopAPI().subscribe(res => console.log(res))
+      var arrayTest = []
+
+      this._weather.worldPopAPI2().subscribe(
+        res =>{
+          console.log(res)
+          res["mortality_distribution"].map(res => {arrayTest.push(res.age)})
+          
+          console.log(arrayTest)
+        }
+        
+      )
+
+      
+
   }
 
 }

@@ -1,5 +1,3 @@
-<h2 style="text-align: center;width: 100%; margin:40px 0 40px 0;" >Gráfico de linhas da população brasileira com certa idade.</h2>
-
 <form #d="ngForm" (ngSubmit)="controlSubmit(d)" class="form-total">
   <div class="form-select">
     <label for="ano">Ano Inicial</label>
@@ -28,5 +26,5 @@
 </form>
 
 <div [hidden]="!chart">
-  <canvas id="canvas" width="500" height="200">{{ chart }}</canvas>
+  <canvas id="canvasAge" width="500" height="200">{{ chart }}</canvas>
 </div>

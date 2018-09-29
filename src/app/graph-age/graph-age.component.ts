@@ -62,7 +62,7 @@ export class GraphAgeComponent implements OnInit {
           datas.push(request[i]['total'].toString());
         }
 
-        this.chart = new Chart('canvas', {
+        this.chart = new Chart('canvasAge', {
         //Resolver aqui as coisas do grafico.
           type:'line',
           data: {

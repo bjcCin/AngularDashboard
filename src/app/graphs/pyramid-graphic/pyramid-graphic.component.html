@@ -1,0 +1,13 @@
+<div [hidden]="!chart2">
+
+        <form #f="ngForm" (ngSubmit)="anoOnchange(f)">
+            <div class="form-group">
+                <input type="number" class="form-control" name="ano" id="ano" placeholder="Ano" ngModel>  
+            </div>
+    
+            <button type="submit" class="btn btn-primary">Filtrar</button>
+        </form>
+    
+        <canvas id="canvas2">{{ chart2 }}</canvas>
+    
+</div>    

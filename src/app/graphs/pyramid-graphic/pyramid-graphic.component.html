@@ -1,5 +1,6 @@
 <div [hidden]="!chart2">
 
+<<<<<<< HEAD
         <form #f="ngForm" (ngSubmit)="anoOnchange(f)">
             <div class="form-group">
                 <input type="number" class="form-control" name="ano" id="ano" placeholder="Ano" ngModel>  
@@ -7,6 +8,17 @@
     
             <button type="submit" class="btn btn-primary">Filtrar</button>
         </form>
+=======
+    <div class="row">
+        <div class="col-xs-12 col-12 col-sm-6 col-md-4 form-group">
+          <label>Data</label>
+          <input class="form-control"
+                 placeholder="20/12/2018"
+                 bsDatepicker
+                 (bsValueChange)="onValueChange($event)">
+        </div>
+      </div>
+>>>>>>> master
     
         <canvas id="canvas2">{{ chart2 }}</canvas>
     

@@ -2,7 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { RouterModule } from '@angular/router';
+<<<<<<< HEAD
 import { FormsModule } from '@angular/forms';
+=======
+import { FormsModule }   from '@angular/forms';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+>>>>>>> master
 
 
 import {ROUTES} from './app.routes';
@@ -31,9 +36,15 @@ import { PyramidGraphicComponent } from './graphs/pyramid-graphic/pyramid-graphi
     BrowserModule,
     NgbModule,
     HttpClientModule,
+<<<<<<< HEAD
     FormsModule,
     RouterModule.forRoot(ROUTES),
     FormsModule
+=======
+    RouterModule.forRoot(ROUTES),
+    FormsModule,
+    BsDatepickerModule.forRoot()
+>>>>>>> master
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

@@ -1,0 +1,18 @@
+.form-select{
+    width:30%;
+    margin:0;
+    cursor: pointer;
+}
+.form-total{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.form-button{
+    width:20%;
+    margin:12px;
+    background-color:#ba4646;
+    border-color:#ba4646;
+    cursor: pointer;
+}

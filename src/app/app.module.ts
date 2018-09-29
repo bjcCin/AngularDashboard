@@ -15,9 +15,12 @@ import { InfoCardsComponent } from './info-cards/info-cards.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './data.service';
 import { GraphsComponent } from './graphs/graphs.component';
+<<<<<<< HEAD
 import { Graphs2Component } from './graphs2/graphs2.component';
 import { PyramidGraphicComponent } from './graphs/pyramid-graphic/pyramid-graphic.component';
 import { UfpeYearGraphComponent } from './ufpe-year-graph/ufpe-year-graph.component';
+=======
+>>>>>>> delete ufpe-year-graph
 import { GraphAgeComponent } from './graph-age/graph-age.component';
 
 
@@ -27,9 +30,12 @@ import { GraphAgeComponent } from './graph-age/graph-age.component';
     MenuComponent,
     InfoCardsComponent,
     GraphsComponent,
+<<<<<<< HEAD
     Graphs2Component,
     PyramidGraphicComponent,
     UfpeYearGraphComponent,
+=======
+>>>>>>> delete ufpe-year-graph
     GraphAgeComponent
   ],
   imports: [

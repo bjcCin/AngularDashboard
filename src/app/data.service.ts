@@ -26,29 +26,14 @@ export class DataService {
     let index:number = 0;
     let i:number =0;
     let dadosUf = []
-
-  //   for(index=0; index<orgaos.length; index++){
-  //     this._http.get("/api-de-dados/despesas/por-orgao?ano=2014&orgao=" + orgaos[index] +"&pagina=1")
-  //     .map(result => result = result[0])
-  //     .subscribe(uf => {
-  //       console.log(uf.orgao)
-  //   });
-  // }
-  return this._http.get("/api-de-dados/despesas/por-orgao?ano=2014&orgao=26231&pagina=1")
-  .map(result => result);
+    return this._http.get("/api-de-dados/despesas/por-orgao?ano=2014&orgao=26231&pagina=1")
+      .map(result => result);
 
   }
 
-
-  worldPopAPI(){
-    return this._http.get("/1.0/population/2018/Brazil/?format=json")
+  worldPopAPI(ano: number){
+    return this._http.get(`/1.0/population/${ano}/Brazil/?format=json`)
     .map(result => result);
   }
-
-  worldPopAPI2(){
-    return this._http.get("/1.0/mortality-distribution/Brazil/male/49y2m/today/")
-    .map(result => result);
-  }
-
 
 }

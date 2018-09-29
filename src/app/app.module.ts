@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { RouterModule } from '@angular/router';
+import { FormsModule }   from '@angular/forms';
+
 
 import {ROUTES} from './app.routes';
 
@@ -13,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './data.service';
 import { GraphsComponent } from './graphs/graphs.component';
 import { Graphs2Component } from './graphs2/graphs2.component';
+import { PyramidGraphicComponent } from './graphs/pyramid-graphic/pyramid-graphic.component';
 
 
 @NgModule({
@@ -21,13 +24,15 @@ import { Graphs2Component } from './graphs2/graphs2.component';
     MenuComponent,
     InfoCardsComponent,
     GraphsComponent,
-    Graphs2Component
+    Graphs2Component,
+    PyramidGraphicComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
     HttpClientModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+    FormsModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

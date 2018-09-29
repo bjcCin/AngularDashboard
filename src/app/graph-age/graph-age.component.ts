@@ -18,8 +18,8 @@ export class GraphAgeComponent implements OnInit {
     anoInicial -= 1950;//Normalize
     let anoFinal = 2015;
     anoFinal -= 1950;//Normalize
-
-    this._brazil.populacaoLimitada().subscribe(res => {
+    let age = 106;
+    this._brazil.populacaoLimitada(age).subscribe(res => {
         request = res;
         //Aqui o index é o ano (sendo 1950 = 0 e 2000=50 e etc. Dessa forma: ANO = index+1950)
         let label = [];
@@ -48,7 +48,7 @@ export class GraphAgeComponent implements OnInit {
           options:{
             title:{
               display: true,
-              text: 'População brasileira com 18 anos de idade ao longo dos anos.'
+              text: 'População brasileira com '+age.toString()+ ' anos de idade ao longo dos anos.'
             },
             showLines: true, // disable for all datasets
             legend:{

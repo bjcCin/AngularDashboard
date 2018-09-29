@@ -13,8 +13,7 @@ export class DataService {
       .map(result => result);
   }
 
-  populacaoLimitada(){
-    let age = 18;
+  populacaoLimitada(age){
     let pais= "Brazil";
     let resposta;
     return this._http.get("/1.0/population/"+pais+'/'+age.toString()+"/?format=json")

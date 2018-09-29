@@ -14,13 +14,12 @@ export class DataService {
       .map(result => result);
   } 
   
-  distributionMortality(){
+  distributionSex(){
     let year = 2018;
     let country = 'Brazil';
 
     return this._http.get("1.0/population/"+year+"/"+country+"/?format=json")
     .map(result => result);
   }
-
 
 }

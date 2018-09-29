@@ -9,17 +9,34 @@ import { Chart } from 'chart.js';
 })
 export class DistributionAgeSexComponent implements OnInit {
 
+
+  filtro: any = {
+    ano: 2018,
+    idade: 90
+  }
+
+  onSubmit(form){
+    console.log('form');
+    this.filtro = form.value;
+    this.ngOnInit();
+  }
+
+
+
   myChart: any;
   sexo: any = [];
-  idade: number = 40;
+  idade: number = 80;
   constructor(private _distribution: DataService) { }
 
   ngOnInit() {
-    this._distribution.distributionMortality()
+    this._distribution.distributionSex()
       .subscribe( rt =>{
+        console.log('ngonit');
+        console.log(this.filtro.ano);
 
-        this.sexo.push(rt[this.idade].males);
-        this.sexo.push(rt[this.idade].females);
+        this.sexo = [];
+        this.sexo.push(rt[this.filtro.idade].males);
+        this.sexo.push(rt[this.filtro.idade].females);
 
         this.myChart = new Chart('can', {
             type: 'pie',

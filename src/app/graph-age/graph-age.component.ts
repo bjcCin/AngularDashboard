@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { DataService } from '../data.service';
 import { Chart } from 'chart.js';
+import { NONE_TYPE } from '../../../node_modules/@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'db-graph-age',
@@ -50,6 +51,9 @@ export class GraphAgeComponent implements OnInit {
     let anoFinal = this.control.anoFinal;
     anoFinal -= 1950;//Normalize
     let age = this.control.age;
+    console.log('age', age);
+    console.log('final ', anoFinal);
+    console.log('inic ', anoInicial);
     this._brazil.populacaoLimitada(age).subscribe(res => {
         console.log('ENKTROU');
         request = res;

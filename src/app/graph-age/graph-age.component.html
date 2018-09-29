@@ -1,3 +1,32 @@
+<h2 style="text-align: center;width: 100%; margin:40px 0 40px 0;" >Gráfico de linhas da população brasileira com certa idade.</h2>
+
+<form #d="ngForm" (ngSubmit)="controlSubmit(d)" class="form-total">
+  <div class="form-select">
+    <label for="ano">Ano Inicial</label>
+    <select class="form-control"  id="anoInicial" name="anoInicial" [(ngModel)]="control.anoInicial" required>
+        <option *ngFor="let yearI of anosIniciais" [value]="yearI">{{yearI}}</option>
+    </select>
+  </div>
+
+  <div class="form-select">
+    <label for="anoFinal">Ano Final</label>
+    <select class="form-control" id="anoFinal" placeholder="Ano Final" name="anoFinal" [(ngModel)]="control.anoFinal" required>
+        <option *ngFor="let yearF of anosIniciais" [value]="yearF">{{yearF}}</option>
+    </select>
+  </div>
+
+  <div class="form-select">
+    <label for="age">Idade</label>
+    <select class="form-control"  id="age" name="age" [(ngModel)]="control.age" required>
+        <option *ngFor="let idades of idadesDisp" [value]="idades">{{idades}}</option>
+    </select>
+  </div>
+
+
+
+  <button type="submit" class="btn btn-primary form-button">Filtrar</button>
+</form>
+
 <div [hidden]="!chart">
   <canvas id="canvas" width="500" height="200">{{ chart }}</canvas>
 </div>

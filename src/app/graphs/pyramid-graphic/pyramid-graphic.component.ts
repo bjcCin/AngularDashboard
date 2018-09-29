@@ -10,19 +10,21 @@ import { FormsModule } from '@angular/forms'
 @Component({
   selector: 'db-graphs-pyramid',
   templateUrl: './pyramid-graphic.component.html',
+  styleUrls: ['./pyramid-graphic.component.css']
 })
 
 export class PyramidGraphicComponent implements OnInit {
 
   chart2: any;
   date: {year: number, month: number};
-  model;
   ano: number = 2018
+  data: Date
 
-  anoOnchange(form){
-    this.ano = form.value.ano
+
+  onValueChange(value: Date): void{
+    this.ano = value.getFullYear()
     this.ngOnInit()
-  }
+    }
 
   
   constructor(private _weather: DataService) {  }

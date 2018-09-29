@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { RouterModule } from '@angular/router';
 import { FormsModule }   from '@angular/forms';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 
 import {ROUTES} from './app.routes';
@@ -32,7 +33,8 @@ import { PyramidGraphicComponent } from './graphs/pyramid-graphic/pyramid-graphi
     NgbModule,
     HttpClientModule,
     RouterModule.forRoot(ROUTES),
-    FormsModule
+    FormsModule,
+    BsDatepickerModule.forRoot()
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

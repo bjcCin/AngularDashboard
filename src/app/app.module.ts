@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule, FormControl} from '@angular/forms';
 
 import {ROUTES} from './app.routes';
 
@@ -13,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './data.service';
 import { GraphsComponent } from './graphs/graphs.component';
 import { Graphs2Component } from './graphs2/graphs2.component';
+import { MonthDatePickerComponent } from './month-date-picker/month-date-picker.component';
 
 
 @NgModule({
@@ -21,12 +23,15 @@ import { Graphs2Component } from './graphs2/graphs2.component';
     MenuComponent,
     InfoCardsComponent,
     GraphsComponent,
-    Graphs2Component
+    Graphs2Component,
+    MonthDatePickerComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [DataService],

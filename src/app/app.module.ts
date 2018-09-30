@@ -8,6 +8,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import {ROUTES} from './app.routes';
 
+
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { InfoCardsComponent } from './info-cards/info-cards.component';
@@ -18,6 +19,8 @@ import { GraphsComponent } from './graphs/graphs.component';
 import { Graphs2Component } from './graphs2/graphs2.component';
 import { PyramidGraphicComponent } from './graphs/pyramid-graphic/pyramid-graphic.component';
 import { GraphAgeComponent } from './graph-age/graph-age.component';
+import { DistributionAgeSexComponent } from './distribution-age-sex/distribution-age-sex.component';
+
 
 
 @NgModule({
@@ -26,6 +29,7 @@ import { GraphAgeComponent } from './graph-age/graph-age.component';
     MenuComponent,
     InfoCardsComponent,
     GraphsComponent,
+    DistributionAgeSexComponent,
     Graphs2Component,
     PyramidGraphicComponent,
     GraphAgeComponent
@@ -34,8 +38,8 @@ import { GraphAgeComponent } from './graph-age/graph-age.component';
     BrowserModule,
     NgbModule,
     HttpClientModule,
-    RouterModule.forRoot(ROUTES),
     FormsModule,
+    RouterModule.forRoot(ROUTES),
     BsDatepickerModule.forRoot()
   ],
   providers: [DataService],

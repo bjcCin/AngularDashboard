@@ -1,0 +1,30 @@
+  <form class="container" #d="ngForm" (ngSubmit)="onSubmit(d)">
+    <div class="row">
+      <!-- ano -->
+      <div class="form-group col-sm">
+        <label for="ano">Ano</label>
+        <select class="form-control" name="ano" id="ano" [(ngModel)]="filtro.ano">
+          <option *ngFor="let yearI of anosIniciais" [value]="yearI">{{yearI}}</option>
+        </select>
+      </div>
+
+      <!-- idade -->
+      <div class="form-group col-sm">
+        <label for="idade">Idade</label>
+        <select class="form-control" name="idade" id="idade" [(ngModel)]="filtro.idade">
+          <option *ngFor="let idades of idadesDisp" [value]="idades">{{idades}}</option>
+        </select>
+      </div>
+
+      <div class="col-sm">
+          <button type="submit" class="btn btn-primary btn_filtro">Filtrar</button>
+      </div>
+    </div>
+
+  </form>
+
+
+  <div [hidden]="!myChart">
+    <canvas id="can" width="500" height="200">{{ myChart }}</canvas>
+  </div>
+

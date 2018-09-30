@@ -1,23 +1,5 @@
 {
-    "/data/*":{
-        "target": "https://samples.openweathermap.org/",
-        "secure": false,
-        "changeOrigin": true
-    },
-
-    "/api-de-dados/*": {
-        "target": "http://www.transparencia.gov.br/",
-        "secure": false,
-        "changeOrigin": true
-    },
-
     "/1.0/population/*":{
-        "target": "http://api.population.io:80/",
-        "secure": false,
-        "changeOrigin": true
-    },
-
-    "/1.0/mortality-distribution/*":{
         "target": "http://api.population.io:80/",
         "secure": false,
         "changeOrigin": true

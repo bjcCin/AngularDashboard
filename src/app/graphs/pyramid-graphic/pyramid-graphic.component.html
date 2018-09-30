@@ -1,0 +1,15 @@
+<div [hidden]="!chart2">
+
+    <div class="row">
+        <div class="col-xs-12 col-12 col-sm-6 col-md-4 form-group">
+          <label>Data</label>
+          <input class="form-control"
+                 placeholder="20/12/2018"
+                 bsDatepicker
+                 (bsValueChange)="onValueChange($event)">
+        </div>
+      </div>
+    
+        <canvas id="canvas2">{{ chart2 }}</canvas>
+    
+</div>    

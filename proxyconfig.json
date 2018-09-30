@@ -1,13 +1,8 @@
 {
-    "/data/*":{
-        "target": "https://samples.openweathermap.org/",
-        "secure": false,
-        "changeOrigin": true
-    },
-
-    "/1.0/population/*": {
-        "target": "http://api.population.io",
+    "/1.0/population/*":{
+        "target": "http://api.population.io:80/",
         "secure": false,
         "changeOrigin": true
     }
+    
 }

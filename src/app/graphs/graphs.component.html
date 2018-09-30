@@ -1,3 +1,86 @@
-<div [hidden]="!chart">
-    <canvas id="canvas" width="500" height="200">{{ chart }}</canvas>
-</div>
+<div class="container-fluid dash-background">
+        <br>
+        <form>
+              <div class="row">
+                 <div class="col-8">
+        
+                    <div class="card border-light shadow-sm mb-3">
+                  
+                    <div class="card-body p-3">
+                       <div class="card-header card-bg"> 
+                           <div class="row">
+                            <div class="col">
+                                <h5 class="card-title">Pirâmide Etária da População Brasileira</h5>
+                            </div>
+                           </div>
+                      </div>
+                      <db-graphs-pyramid></db-graphs-pyramid>
+                    </div>
+                  </div>
+              </div>
+        
+              <div class="col-4">
+        
+                <div class="card border-light shadow-sm mb-3">
+              
+                    <div class="card-body p-3">
+                         <div class="card-header card-bg">
+                          <div class="row">
+                           <div class="col">
+                            <h5 class="card-title">Pizza</h5>
+                           </div>
+                          </div>
+                        </div>
+                       <!-- Grafico aqui-->
+                       <canvas id="canvas" width="500" height="200"></canvas>
+                    </div>
+                  </div>
+              </div>
+              </div>
+        
+              <br>
+        
+               <div class="row">
+                  <div class="col-6">
+        
+                    <div class="card border-light shadow-sm mb-3">
+                  
+                        <div class="card-body p-3">
+                         <div class="card-header card-bg"> 
+                             <div class="row">
+                                   <div class="col">
+                                    <h5 class="card-title">Pizza</h5>
+                                   </div>
+                             </div>
+                        </div>
+                           <canvas id="canvas" width="500" height="200"></canvas>
+                        </div>
+                      </div>
+                  </div>
+                  
+                  <div class="col-6">
+        
+                    <div class="card border-light shadow-sm mb-3">
+                  
+                        <div class="card-body p-3">
+                          <div class="card-header card-bg">
+                              <div class="row">
+                               <div class="col">
+                               <h5 class="card-title">Gráfico de linhas da população brasileira com certa idade.    </h5>
+                              </div>
+        
+                          </div>
+                      </div>   
+                        <db-graph-age></db-graph-age>
+                        </div>
+                  </div>
+                 </div>
+                
+              </div>
+        
+              
+         </form>
+        
+         <br>
+              
+        </div>

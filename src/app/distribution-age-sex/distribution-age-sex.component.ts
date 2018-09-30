@@ -12,28 +12,37 @@ export class DistributionAgeSexComponent implements OnInit {
 
   filtro: any = {
     ano: 2018,
-    idade: 90
+    idade: 55
   }
-
-  onSubmit(form){
-    console.log('form');
-    this.filtro = form.value;
-    this.ngOnInit();
-  }
-
-
 
   myChart: any;
   sexo: any = [];
-  idade: number = 80;
+
+  onSubmit(form){
+    this.filtro.idade = form.value.idade;
+    this.filtro.ano = form.value.ano;
+    this.ngOnInit();
+  }
+
+  anosIniciais = []
+  idadesDisp = []
+
+  startYears(){
+    for(let i=1950;i<=2018;i++){
+      this.anosIniciais.push(i);
+
+    }
+    for(let j=0;j<=100; j++){
+      this.idadesDisp.push(j);
+    }
+  }
+
   constructor(private _distribution: DataService) { }
 
   ngOnInit() {
-    this._distribution.distributionSex()
+    this._distribution.distributionSex(this.filtro.ano)
       .subscribe( rt =>{
-        console.log('ngonit');
-        console.log(this.filtro.ano);
-
+        this.startYears();
         this.sexo = [];
         this.sexo.push(rt[this.filtro.idade].males);
         this.sexo.push(rt[this.filtro.idade].females);

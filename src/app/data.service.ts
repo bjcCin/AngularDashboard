@@ -14,8 +14,8 @@ export class DataService {
       .map(result => result);
   } 
   
-  distributionSex(){
-    let year = 2018;
+  distributionSex(ano){
+    let year = ano;
     let country = 'Brazil';
 
     return this._http.get("1.0/population/"+year+"/"+country+"/?format=json")

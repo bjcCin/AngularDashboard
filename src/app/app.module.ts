@@ -20,6 +20,7 @@ import { Graphs2Component } from './graphs2/graphs2.component';
 import { PyramidGraphicComponent } from './graphs/pyramid-graphic/pyramid-graphic.component';
 import { GraphAgeComponent } from './graph-age/graph-age.component';
 import { DistributionAgeSexComponent } from './distribution-age-sex/distribution-age-sex.component';
+import { PopulationVsHappinessComponent } from './population-vs-happiness/population-vs-happiness.component';
 
 
 
@@ -32,7 +33,8 @@ import { DistributionAgeSexComponent } from './distribution-age-sex/distribution
     DistributionAgeSexComponent,
     Graphs2Component,
     PyramidGraphicComponent,
-    GraphAgeComponent
+    GraphAgeComponent,
+    PopulationVsHappinessComponent
   ],
   imports: [
     BrowserModule,

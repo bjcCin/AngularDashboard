@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { DataService } from '../data.service';
 import { Chart } from 'chart.js';
-import { NONE_TYPE } from '../../../node_modules/@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'db-graph-age',
@@ -21,6 +20,9 @@ export class GraphAgeComponent implements OnInit {
   anosIniciais = []
   anosFinais = []
   idadesDisp = []
+  firstTime  = true;
+  label = [];
+  datas =[];
 
   startYears(){
     for(let i=1950;i<=2018;i++){
@@ -32,12 +34,11 @@ export class GraphAgeComponent implements OnInit {
     }
   }
 
-  controlSubmit(form){
+  controlSubmit(form){//pega os dados e passa para ngOnInit
     this.control.anoInicial = parseInt(form.value.anoInicial,10);
     this.control.anoFinal = parseInt(form.value.anoFinal, 10);
     this.control.age = parseInt(form.value.age, 10);
-    console.log(form.value);
-    console.log(this.control);
+    console.log('AQUI AAA');
     this.ngOnInit();
   }
 
@@ -58,46 +59,55 @@ export class GraphAgeComponent implements OnInit {
         console.log('ENKTROU');
         request = res;
         //Aqui o index é o ano (sendo 1950 = 0 e 2000=50 e etc. Dessa forma: ANO = index+1950)
-        let label = [];
-        let datas =[]
+        this.label = [];
+        this.datas =[];
         for(var i=anoInicial; i<=anoFinal;i++){
           //Consulta por ano.
-          label.push(request[i]['year']);
-          datas.push(request[i]['total'].toString());
+          this.label.push(request[i]['year']);
+          this.datas.push(request[i]['total'].toString());
         }
-
-        this.chart = new Chart('canvasAge', {
-        //Resolver aqui as coisas do grafico.
-          type:'line',
-          data: {
-            labels:label,
-            datasets: [{
-                data: datas,
-                label:'População',
-                borderColor: 'rgba(186, 70, 70, 0.6)',
-                backgroundColor:'rgba(186, 70, 70, 0.2)',
-                fill:true,
-                showLine: true,
-            }]
-          },
-          options:{
-            title:{
-              display: true,
-              text: 'População brasileira com '+age.toString()+ ' entre '+ (anoInicial+1950).toString() + ' e '+ (anoFinal+1950).toString(),
-            },
-            showLines: true, // disable for all datasets
-            legend:{
-            },
-            scales: {
-              xAxes: [{
-                display: true
-              }],
-              yAxes: [{
-                display: true
+        if(this.firstTime) {
+          this.chart = new Chart('canvasAge', {
+          //Resolver aqui as coisas do grafico.
+            type:'line',
+            data: {
+              labels:this.label,
+              datasets: [{
+                  data: this.datas,
+                  label:'População',
+                  borderColor: 'rgba(186, 70, 70, 0.6)',
+                  backgroundColor:'rgba(186, 70, 70, 0.2)',
+                  fill:true,
+                  showLine: true,
               }]
+            },
+            options:{
+              title:{
+                display: true,
+                text: 'População brasileira com '+age.toString()+ ' entre '+ (anoInicial+1950).toString() + ' e '+ (anoFinal+1950).toString(),
+              },
+              showLines: true, // disable for all datasets
+              legend:{
+              },
+              scales: {
+                xAxes: [{
+                  display: true
+                }],
+                yAxes: [{
+                  display: true
+                }]
+              }
             }
-          }
-        });
+          });
+          this.firstTime = false;
+        }
+        else{
+          this.chart.data.datasets[0].data = this.datas;
+          console.log(this.chart.data.datasets[0].label);
+          console.log('AQUI');
+          this.chart.options.title.text = 'População brasileira com '+age.toString()+ ' entre '+ (anoInicial+1950).toString() + ' e '+ (anoFinal+1950).toString();
+          this.chart.update();
+        }
       });
-  };
+    };
 }

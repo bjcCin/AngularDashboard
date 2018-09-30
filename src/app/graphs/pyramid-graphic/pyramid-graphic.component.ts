@@ -33,9 +33,6 @@ export class PyramidGraphicComponent implements OnInit {
   constructor(private _weather: DataService) {  }
   
   ngOnInit() {
-
-
-
       this._weather.worldPopAPI(this.ano)
       .subscribe(res => {
         

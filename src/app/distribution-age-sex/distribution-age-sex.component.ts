@@ -17,10 +17,12 @@ export class DistributionAgeSexComponent implements OnInit {
 
   myChart: any;
   sexo: any = [];
+  primairaVez = true;
 
   onSubmit(form){
     this.filtro.idade = form.value.idade;
     this.filtro.ano = form.value.ano;
+    this.primairaVez = false;
     this.ngOnInit();
   }
 
@@ -43,48 +45,53 @@ export class DistributionAgeSexComponent implements OnInit {
     this._distribution.distributionSex(this.filtro.ano)
       .subscribe( rt =>{
         this.startYears();
-        this.sexo = [];
-        this.sexo.push(rt[this.filtro.idade].males);
-        this.sexo.push(rt[this.filtro.idade].females);
+        this.sexo[0] = rt[this.filtro.idade].males;
+        this.sexo[1] = rt[this.filtro.idade].females;
 
-        this.myChart = new Chart('can', {
-            type: 'pie',
-            data: {
-                labels: ['Masculino', 'Feminino'],
-                datasets: [{
-                    label: '# of Votes',
-                    data: this.sexo,
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero:true
-                        }
+        if(this.primairaVez){
+            console.log('primeira vez');
+            this.myChart = new Chart('can', {
+                type: 'pie',
+                data: {
+                    labels: ['Masculino', 'Feminino'],
+                    datasets: [{
+                        label: '# of Votes',
+                        data: this.sexo,
+                        backgroundColor: [
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(201, 161, 218, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(201, 161, 218, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
                     }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true
+                            }
+                        }]
+                    }
                 }
-            }
-        });
+            });//end chart
+
+        }else{
+            this.myChart.update();
+        }
         
-      }) //end chart
+      }) 
   }
 
 }

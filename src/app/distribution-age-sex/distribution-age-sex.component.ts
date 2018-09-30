@@ -34,13 +34,17 @@ export class DistributionAgeSexComponent implements OnInit {
       this.anosIniciais.push(i);
 
     }
-    for(let j=0;j<=100; j++){
-      this.idadesDisp.push(j);
+    if(this.primairaVez){
+        for(let j=0;j<=100; j++){
+        this.idadesDisp.push(j);
+        }
     }
   }
+  
 
   constructor(private _distribution: DataService) { }
 
+  
   ngOnInit() {
     this._distribution.distributionSex(this.filtro.ano)
       .subscribe( rt =>{

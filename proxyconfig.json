@@ -3,6 +3,12 @@
         "target": "http://api.population.io:80/",
         "secure": false,
         "changeOrigin": true
+    },
+
+    "/v1/bpi/historical/*":{
+        "target": "http://api.coindesk.com",
+        "secure": false,
+        "changeOrigin": true
     }
     
 }

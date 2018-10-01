@@ -22,6 +22,11 @@ export class DataService {
     .map(result => result);
   }
 
+  historicalBc(dataInicio, dataFim){
+    return this._http.get("https://api.coindesk.com/v1/bpi/historical/close.json?start="+dataInicio+"&end="+dataFim)
+    .map(result => result);
+  }
+
   despesasUFPEAdson(orgao: number){
     const orgaos = [26231, 26232, 26233, 26234]
     let index:number = 0;

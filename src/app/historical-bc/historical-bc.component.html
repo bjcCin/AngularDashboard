@@ -1,0 +1,22 @@
+
+    <div class="row">
+        <div class="col-xs-12 col-12 col-sm-6 col-md-4 form-group">
+          <label>Data Inicial</label>
+          <input class="form-control"
+                 placeholder="20/12/2018"
+                 bsDatepicker
+                 (bsValueChange)="onValueChange($event)" data-format="yyyy-MM-dd">
+        </div>
+
+        <div class="col-xs-12 col-12 col-sm-6 col-md-4 form-group">
+            <label>Data Final</label>
+            <input class="form-control"
+                   placeholder="20/12/2018"
+                   bsDatepicker
+                   (bsValueChange)="onValueChange2($event)" data-format="yyyy-MM-dd">
+          </div>
+      </div>
+
+      <div [hidden]="!myChart">
+        <canvas id="can" width="500" height="200">{{ myChart }}</canvas>
+      </div>

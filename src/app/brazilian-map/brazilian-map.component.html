@@ -1,0 +1,15 @@
+<form #d="ngForm" (ngSubmit)="controlSubmit(d)" class="form-total">
+  <div class="form-select">
+    <label for="age">Idade</label>
+    <select class="form-control"  id="age" name="tipoMapa" [(ngModel)]="control.age" required>
+        <option *ngFor="let opcao of opcoesMapa" [value]="opcao">{{opcao}}</option>
+    </select>
+  </div>
+  
+  <div class="botao">
+    <button type="submit" class="btn btn-primary form-button">Filtrar</button>
+  </div>
+  
+</form>
+
+<div id="chartdiv"></div>	

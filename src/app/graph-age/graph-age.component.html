@@ -22,9 +22,9 @@
 
 
 
-  <button type="submit" class="btn btn-primary form-button">Filtrar</button>
+  <button type="submit" id="form-button"class="btn btn-primary form-button">Filtrar</button>
 </form>
 
-<div [hidden]="!chart">
+<div [hidden]="!chart" id="graph-container">
   <canvas id="canvasAge" width="500" height="200">{{ chart }}</canvas>
 </div>

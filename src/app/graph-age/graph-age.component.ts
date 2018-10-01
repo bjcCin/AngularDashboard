@@ -16,7 +16,7 @@ export class GraphAgeComponent implements OnInit {
     anoFinal:2017,
     age: 18
   };
-
+  finalMaior:boolean=false;
   anosIniciais = []
   anosFinais = []
   idadesDisp = []
@@ -38,7 +38,13 @@ export class GraphAgeComponent implements OnInit {
     this.control.anoInicial = parseInt(form.value.anoInicial,10);
     this.control.anoFinal = parseInt(form.value.anoFinal, 10);
     this.control.age = parseInt(form.value.age, 10);
-    this.ngOnInit();
+    if(this.control.anoFinal<=this.control.anoInicial){
+      this.finalMaior=true;
+    }
+    else{
+      this.finalMaior=false;
+      this.ngOnInit();
+    }
   }
 
   constructor(private _brazil: DataService) {  };
@@ -81,7 +87,8 @@ export class GraphAgeComponent implements OnInit {
           options:{
             title:{
               display: true,
-              text: 'População brasileira com '+age.toString()+ ' entre '+ (anoInicial+1950).toString() + ' e '+ (anoFinal+1950).toString(),
+              fontSize:24,
+              text: 'População brasileira, com idade '+age.toString()+ ' anos, entre '+ (anoInicial+1950).toString() + ' e '+ (anoFinal+1950).toString(),
             },
             showLines: true, // disable for all datasets
             legend:{

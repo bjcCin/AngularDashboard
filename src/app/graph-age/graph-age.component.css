@@ -12,7 +12,18 @@
 .form-button{
     width:20%;
     margin:12px;
-    background-color:#ba4646;
-    border-color:#ba4646;
+    background-color:#0275d8;
+    border-color:#0275d8;
     cursor: pointer;
+}
+
+.error{
+    width: 100%;
+    background-color:#D12D2D;
+    height: 2em;
+    text-align: center;
+    display: flex;
+    align-content: center;
+    color:#F1F1F1;
+    margin:20px 0 10px 0;
 }

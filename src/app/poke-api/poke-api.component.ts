@@ -78,7 +78,6 @@ export class PokeApiComponent implements OnInit {
 
   controlGraph(form){
     this.chart.destroy();
-    console.log('destroy');
     this.filter.graph = parseInt(form.value.showGraph,10);
     this.ngOnInit();
   }

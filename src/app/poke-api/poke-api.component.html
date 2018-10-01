@@ -1,0 +1,15 @@
+<form #d="ngForm" (ngSubmit)="controlGraph(d)">
+    <div class="form-select">
+        <label for="ano">Ano Inicial</label>
+        <select class="form-control"  id="showGraph" name="showGraph" [(ngModel)]="filter.graph" required>
+            <option value="0">Pokemons</option>
+            <option value="1">Ataques</option>
+        </select>
+      </div>
+    
+    <button type="submit" id="form-button"class="btn btn-primary form-button">Filtrar</button>
+</form>
+
+<div [hidden]="!chart" id="graph-container">
+    <canvas id="canvasPoke" width="500" height="250">{{ chart }}</canvas>
+</div>

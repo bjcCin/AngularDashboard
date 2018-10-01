@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { DataService } from '../data.service';
 import { Chart } from 'chart.js';
-import { EMPTY } from '../../../node_modules/rxjs';
-import { $ } from '../../../node_modules/protractor';
 
 @Component({
   selector: 'db-graph-age',
@@ -41,7 +39,6 @@ export class GraphAgeComponent implements OnInit {
     this.control.anoFinal = parseInt(form.value.anoFinal, 10);
     this.control.age = parseInt(form.value.age, 10);
     this.ngOnInit();
-
   }
 
   constructor(private _brazil: DataService) {  };
@@ -63,7 +60,7 @@ export class GraphAgeComponent implements OnInit {
         for(var i=anoInicial; i<=anoFinal;i++){
           //Consulta por ano.
           // console.log(request[i]['year'] ,' y - total', request[i]['total']);
-          this.label.push(request[i]['year'])
+          this.label.push(request[i]['year']);
           this.datas.push({y:request[i]['total'].toString(), x:request[i]['year']});
         }
         

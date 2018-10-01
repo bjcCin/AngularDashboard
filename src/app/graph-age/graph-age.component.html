@@ -21,10 +21,10 @@
   </div>
 
 
-
-  <button type="submit" class="btn btn-primary form-button">Filtrar</button>
+  <div *ngIf="finalMaior==true" class="error"><p style="text-align: center;margin:0;width:100%;padding-top:2px;">O ano final deve ser maior que o ano inicial.</p></div>
+  <button type="submit" id="form-button"class="btn btn-primary form-button">Filtrar</button>
 </form>
 
-<div [hidden]="!chart">
+<div [hidden]="!chart" id="graph-container">
   <canvas id="canvasAge" width="500" height="200">{{ chart }}</canvas>
 </div>

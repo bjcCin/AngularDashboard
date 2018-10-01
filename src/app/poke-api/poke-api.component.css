@@ -1,0 +1,25 @@
+.form-select{
+    width:50%;
+    margin-right:2em;
+}
+.form-total{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    align-content: flex-end;
+}
+
+.form-button{
+}
+
+@media(max-width:800px){
+    .canvas{
+        height: 330px !important;
+    }
+}
+
+@media(max-width:670px){
+    .canvas{
+        height: 270px !important;
+    }
+}

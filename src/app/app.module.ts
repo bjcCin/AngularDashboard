@@ -26,6 +26,7 @@ import { DistributionAgeSexComponent } from './distribution-age-sex/distribution
 import { PopulationVsHappinessComponent } from './population-vs-happiness/population-vs-happiness.component';
 import { HistoricalBcComponent } from './historical-bc/historical-bc.component';
 import { BrazilianMapComponent } from './brazilian-map/brazilian-map.component';
+import { PokeApiComponent } from './poke-api/poke-api.component';
 
 
 
@@ -41,7 +42,8 @@ import { BrazilianMapComponent } from './brazilian-map/brazilian-map.component';
     GraphAgeComponent,
     PopulationVsHappinessComponent,
     HistoricalBcComponent,
-    BrazilianMapComponent
+    BrazilianMapComponent,
+    PokeApiComponent
   ],
   imports: [
     BrowserModule,

@@ -22,6 +22,9 @@ export class PyramidGraphicComponent implements OnInit {
   mulher = []
   homem = []
   primeiraVez = true
+  labels = []
+  divisaoPiramide = 10
+  opcoes= [3, 5, 10]
 
 
   onValueChange(value: Date): void{
@@ -38,12 +41,14 @@ export class PyramidGraphicComponent implements OnInit {
         
       this.mulher = []
       this.homem = []
+      this.labels = []
 
       const x = Object.values(res)
         
-      for(let i=0; i<100; i=i+10){
-        this.mulher.push(this.getSumResult(x,i,i+10,"females"))
-        this.homem.push(this.getSumResult(x,i,i+10,"males"))
+      for(let i=0; i<100; i=i+this.divisaoPiramide){
+        this.mulher.push(this.getSumResult(x,i,i+this.divisaoPiramide,"females"))
+        this.homem.push(this.getSumResult(x,i,i+this.divisaoPiramide,"males"))
+        this.labels.push(`${i}-${i+this.divisaoPiramide}`)
       }
 
       this.mulher = this.mulher.map(res=>res*-1)
@@ -54,7 +59,7 @@ export class PyramidGraphicComponent implements OnInit {
         this.chart2 = new Chart('canvas2', {
         type: 'horizontalBar',
         data: {
-            labels: ["0-10", "10-20", "20-30", "30-40", "40-50", "50-60", "60-70", "70-80", "80-90", "90-100"],
+            labels: this.labels,
             datasets: [{
                 label: 'Mulheres',
                 data: this.mulher,
@@ -93,6 +98,8 @@ export class PyramidGraphicComponent implements OnInit {
     } else {
       this.chart2.data.datasets[0].data = this.mulher
       this.chart2.data.datasets[1].data = this.homem
+      this.chart2.data.labels = this.labels
+      console.log("mulher",this.mulher, "homem",this.homem, "labels",this.labels)
       this.chart2.update()
     }
     
@@ -108,6 +115,13 @@ export class PyramidGraphicComponent implements OnInit {
       if(record["age"] <= fim && record["age"] >= inicio) return sum + record[sexo];
       else return sum;
     }, 0);
+  }
+
+  divisaoPiramideChange(){
+    var x = this.divisaoPiramide + " "
+    var y = parseInt(x)
+    this.divisaoPiramide = y
+    this.ngOnInit()
   }
 
 }

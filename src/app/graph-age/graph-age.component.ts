@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { DataService } from '../data.service';
 import { Chart } from 'chart.js';
-import { NONE_TYPE } from '../../../node_modules/@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'db-graph-age',
@@ -17,10 +16,12 @@ export class GraphAgeComponent implements OnInit {
     anoFinal:2017,
     age: 18
   };
-
+  finalMaior:boolean=false;
   anosIniciais = []
   anosFinais = []
   idadesDisp = []
+  label= [];
+  datas =[];
 
   startYears(){
     for(let i=1950;i<=2018;i++){
@@ -32,13 +33,18 @@ export class GraphAgeComponent implements OnInit {
     }
   }
 
-  controlSubmit(form){
+  controlSubmit(form){//pega os dados e passa para ngOnInit
+    this.chart.destroy();//quebra o grafico antigo.
     this.control.anoInicial = parseInt(form.value.anoInicial,10);
     this.control.anoFinal = parseInt(form.value.anoFinal, 10);
     this.control.age = parseInt(form.value.age, 10);
-    console.log(form.value);
-    console.log(this.control);
-    this.ngOnInit();
+    if(this.control.anoFinal<=this.control.anoInicial){
+      this.finalMaior=true;
+    }
+    else{
+      this.finalMaior=false;
+      this.ngOnInit();
+    }
   }
 
   constructor(private _brazil: DataService) {  };
@@ -51,28 +57,26 @@ export class GraphAgeComponent implements OnInit {
     let anoFinal = this.control.anoFinal;
     anoFinal -= 1950;//Normalize
     let age = this.control.age;
-    console.log('age', age);
-    console.log('final ', anoFinal);
-    console.log('inic ', anoInicial);
+
+    this.label=[];
+    this.datas=[];
     this._brazil.populacaoLimitada(age).subscribe(res => {
-        console.log('ENKTROU');
         request = res;
         //Aqui o index é o ano (sendo 1950 = 0 e 2000=50 e etc. Dessa forma: ANO = index+1950)
-        let label = [];
-        let datas =[]
         for(var i=anoInicial; i<=anoFinal;i++){
           //Consulta por ano.
-          label.push(request[i]['year']);
-          datas.push(request[i]['total'].toString());
+          // console.log(request[i]['year'] ,' y - total', request[i]['total']);
+          this.label.push(request[i]['year']);
+          this.datas.push({y:request[i]['total'].toString(), x:request[i]['year']});
         }
-
+        
         this.chart = new Chart('canvasAge', {
-        //Resolver aqui as coisas do grafico.
+          //Resolver aqui as coisas do grafico.
           type:'line',
           data: {
-            labels:label,
+            labels:this.label,
             datasets: [{
-                data: datas,
+                data: this.datas,
                 label:'População',
                 borderColor: 'rgba(186, 70, 70, 0.6)',
                 backgroundColor:'rgba(186, 70, 70, 0.2)',
@@ -83,7 +87,8 @@ export class GraphAgeComponent implements OnInit {
           options:{
             title:{
               display: true,
-              text: 'População brasileira com '+age.toString()+ ' entre '+ (anoInicial+1950).toString() + ' e '+ (anoFinal+1950).toString(),
+              fontSize:24,
+              text: 'População brasileira, com idade '+age.toString()+ ' anos, entre '+ (anoInicial+1950).toString() + ' e '+ (anoFinal+1950).toString(),
             },
             showLines: true, // disable for all datasets
             legend:{
@@ -99,5 +104,5 @@ export class GraphAgeComponent implements OnInit {
           }
         });
       });
-  };
+    };
 }

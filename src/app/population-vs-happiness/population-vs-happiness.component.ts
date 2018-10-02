@@ -22,9 +22,9 @@ export class PopulationVsHappinessComponent implements OnInit {
           {
             label: 'China',
             data: [{
-              x: 1372470000,
+              x: 23120,
               y: 5.245,
-              r: 15
+              r: 19.5
             }],
             backgroundColor: "rgba(255,221,50,0.2)",
             borderColor: "rgba(255,221,50,1)"
@@ -34,9 +34,9 @@ export class PopulationVsHappinessComponent implements OnInit {
             backgroundColor: "rgba(60,186,159,0.2)",
             borderColor: "rgba(60,186,159,1)",
             data: [{
-              x: 325000000,
+              x: 19360,
               y: 7.526,
-              r: 10
+              r: 4.905
             }]
           },
           {
@@ -44,9 +44,9 @@ export class PopulationVsHappinessComponent implements OnInit {
             backgroundColor: "rgba(0,0,0,0.2)",
             borderColor: "#000",
             data: [{
-              x: 127000000,
+              x: 2406,
               y: 6.994,
-              r: 15
+              r: 1.86
             }]
           },
           {
@@ -54,9 +54,9 @@ export class PopulationVsHappinessComponent implements OnInit {
             backgroundColor: "rgba(193,46,12,0.2)",
             borderColor: "rgba(193,46,12,1)",
             data: [{
-              x: 127000000,
+              x: 5405,
               y: 5.921,
-              r: 15
+              r: 1.89
             }]
           },
           {
@@ -64,11 +64,22 @@ export class PopulationVsHappinessComponent implements OnInit {
             backgroundColor: "rgba(201, 161, 218, 0.2)",
             borderColor: "rgba(193,46,12,1)",
             data: [{
-              x: 207000007,
+              x: 3219,
               y: 5.921,
-              r: 15
+              r: 4
+            }]
+          },
+          {
+            label: "Denmark",
+            backgroundColor: "rgba(60,186,159,0.2)",
+            borderColor: "rgba(60,186,159,1)",
+            data: [{
+              x: 2855,
+              y: 7.526,
+              r: 1.2
             }]
           }
+          
 
         ]
       },

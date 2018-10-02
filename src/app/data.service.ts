@@ -48,4 +48,11 @@ export class DataService {
     return this._http.get("/1.0/population/"+pais+'/'+age.toString()+"/?format=json")
       .map(result => result);
   }
+
+  pokeApiTypes(){
+    return this._http.get("/api/v2/type/?format=json").map(result=>result);
+  }
+  pokeApiPokemons(type){
+    return this._http.get("/api/v2/type/"+type+"/?format=json").map(result=>result);
+  }
 }

@@ -9,6 +9,12 @@
         "target": "http://api.coindesk.com",
         "secure": false,
         "changeOrigin": true
+    },
+
+    "/api/v2/*":{
+        "target": "https://pokeapi.co",
+        "secure": false,
+        "changeOrigin": true   
     }
     
 }

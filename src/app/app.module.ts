@@ -27,6 +27,8 @@ import { PopulationVsHappinessComponent } from './population-vs-happiness/popula
 import { HistoricalBcComponent } from './historical-bc/historical-bc.component';
 import { BrazilianMapComponent } from './brazilian-map/brazilian-map.component';
 import { PokeApiComponent } from './poke-api/poke-api.component';
+import { MortalityDistribution } from './mortality-distribution/mortality-distribution.component';
+
 
 
 
@@ -43,7 +45,8 @@ import { PokeApiComponent } from './poke-api/poke-api.component';
     PopulationVsHappinessComponent,
     HistoricalBcComponent,
     BrazilianMapComponent,
-    PokeApiComponent
+    PokeApiComponent,
+    MortalityDistribution
   ],
   imports: [
     BrowserModule,

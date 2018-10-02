@@ -7,7 +7,6 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { AmChartsModule } from "@amcharts/amcharts3-angular";
 
 
-
 import {ROUTES} from './app.routes';
 
 
@@ -26,6 +25,7 @@ import { DistributionAgeSexComponent } from './distribution-age-sex/distribution
 import { PopulationVsHappinessComponent } from './population-vs-happiness/population-vs-happiness.component';
 import { HistoricalBcComponent } from './historical-bc/historical-bc.component';
 import { BrazilianMapComponent } from './brazilian-map/brazilian-map.component';
+import { PolargraphComponent } from './polargraph/polargraph.component';
 
 
 
@@ -41,7 +41,8 @@ import { BrazilianMapComponent } from './brazilian-map/brazilian-map.component';
     GraphAgeComponent,
     PopulationVsHappinessComponent,
     HistoricalBcComponent,
-    BrazilianMapComponent
+    BrazilianMapComponent,
+    PolargraphComponent
   ],
   imports: [
     BrowserModule,

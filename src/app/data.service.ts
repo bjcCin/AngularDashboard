@@ -55,4 +55,10 @@ export class DataService {
   pokeApiPokemons(type){
     return this._http.get("/api/v2/type/"+type+"/?format=json").map(result=>result);
   }
+
+  mortalityDistribution(){
+    return this._http.get("http://api.population.io:80/1.0/mortality-distribution/Brazil/female/45y/today/")
+    .map(result=>result);
+  }
+  
 }

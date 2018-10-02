@@ -8,6 +8,14 @@
                  bsDatepicker
                  (bsValueChange)="onValueChange($event)">
         </div>
+        <div class="form-select">
+          <div class="form-group col-sm">
+            <label for="idade">Divisao Piramide</label>
+            <select class="form-control" name="divisao" [(ngModel)]="divisaoPiramide" (change)="divisaoPiramideChange()">
+              <option *ngFor="let opcao of opcoes" [value]="opcao">{{opcao}}</option>
+            </select>
+          </div>
+        </div>
       </div>
     
         <canvas id="canvas2">{{ chart2 }}</canvas>

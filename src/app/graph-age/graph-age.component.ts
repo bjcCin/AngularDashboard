@@ -104,5 +104,5 @@ export class GraphAgeComponent implements OnInit {
           }
         });
       });
-    };
+  };
 }
